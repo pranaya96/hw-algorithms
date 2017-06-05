@@ -1,2 +1,2 @@
 all:
-	g++ -g -c lab2_sample.cc -o lab2_sample
+	g++ -g -o lab2_sample lab2_sample.cc 
