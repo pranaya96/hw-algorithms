@@ -2,6 +2,17 @@
 
 using namespace std;
 
+int multiplyLargeNumbers(int* first_number,
+                         int first_number_length,
+                         int* second_number,
+                         int second_number_length,
+                         int* result) {
+  // Now write your code here to multiply the two numbers
+  // and write the result to result, and return its number
+  // of digits.
+  return 0;
+}
+
 // This function parses a number as a string, saves each digit
 // in the num_array that is passed in, low-digits first, and
 // returns the number of digits in that number.
@@ -37,8 +48,8 @@ string numberAsArrayToString(int* num_array, int length) {
 }
 
 int main() {
-  int first_number[1000000];
-  int second_number[1000000];
+  int first_number[10000];
+  int second_number[10000];
   int first_number_length, second_number_length;
   cout << "Let's multiply two numbers." << endl;
   {
@@ -61,8 +72,12 @@ int main() {
   cout << "First number is : " << numberAsArrayToString(first_number, first_number_length) << endl;
   cout << "Second number is : " << numberAsArrayToString(second_number, second_number_length) << endl;
 
-  // Now write your code here to multiply the two numbers
-  // and print it out.
+  int result[20000];
+  int result_length =
+      multiplyLargeNumbers(first_number, first_number_length,
+                           second_number, second_number_length,
+                           result);
 
+  cout << "Result: " << numberAsArrayToString(result, result_length) << endl;
   return 0;
 }
