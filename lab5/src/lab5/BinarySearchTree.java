@@ -98,11 +98,11 @@ public class BinarySearchTree {
 	return false;
     }
 
-    // Returns the count of entries in this BinarySearchTree that are
+    // Returns the number of entries in this BinarySearchTree that are
     // less than value.
-    public int countLessThan(int value) {
+    public int numLessThan(int value) {
 
-	// TODO: You should implement countLessThan() here.
+	// TODO: You should implement numLessThan() here.
 	// Note that you will likely want to implement a helper
 	// method in the Node class above.
 
