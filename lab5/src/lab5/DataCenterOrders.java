@@ -7,7 +7,7 @@ public class DataCenterOrders {
 	Scanner in = new Scanner(System.in);
 	int numOperations = in.nextInt();
 
-	// TODO: Define any data structures that you will need here.
+       // TODO: Define any data structures that you will need here.
 
 	for (int i = 0; i < numOperations; ++i) {
 	    String op = in.next();
@@ -16,6 +16,7 @@ public class DataCenterOrders {
 
 		// TODO: Insert dataCenterSize into your data structure.
 
+		System.out.println("Inserted " + dataCenterSize);
 	    } else if (op.contentEquals("Range")) {
 		int min = in.nextInt();
 		int max = in.nextInt();
@@ -24,7 +25,8 @@ public class DataCenterOrders {
 		// TODO: Set count to the number of data center of sizes
 		// greater than or equal to min, but less than max.
 
-		System.out.println(count);
+		System.out.println("Range " + min + " " + max +
+				   " - Result: " + count);
 	    } else {
 		System.err.println("Unknown operation: " + op);
 		System.exit(1);
