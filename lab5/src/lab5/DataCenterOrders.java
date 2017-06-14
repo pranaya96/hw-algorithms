@@ -27,6 +27,13 @@ public class DataCenterOrders {
 
 		System.out.println("Range " + min + " " + max +
 				   " - Result: " + count);
+	    } else if (op.contentEquals("Delete")) {
+		int dataCenterSize = in.nextInt();
+
+		// TODO: Delete dataCenterSize from your data structure.
+
+		System.out.println("Deleted " + dataCenterSize);
+
 	    } else {
 		System.err.println("Unknown operation: " + op);
 		System.exit(1);

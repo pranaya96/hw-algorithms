@@ -108,4 +108,13 @@ public class BinarySearchTree {
 
 	return 0;
     }
+
+    // Delete the given value in this tree if present
+    // Returns true if the item was present and deleted.
+    public boolean delete(int value) {
+
+	// TODO: Implement delete here.
+
+	return false;
+    }
 }
