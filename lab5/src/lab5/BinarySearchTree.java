@@ -90,15 +90,22 @@ public class BinarySearchTree {
     // Checks if this BinarySearchTree contains the given value.
     // Returns true iff the value is present in this BinarySearchTree.
     public boolean find(int value) {
+
 	// TODO: You should implement find() here.
-	// Note that you will likely want to implement a 
+	// Note that you will likely want to implement a helper
+	// method in the Node class above.
+
 	return false;
     }
 
     // Returns the count of entries in this BinarySearchTree that are
     // less than value.
     public int countLessThan(int value) {
+
 	// TODO: You should implement countLessThan() here.
+	// Note that you will likely want to implement a helper
+	// method in the Node class above.
+
 	return 0;
     }
 }
