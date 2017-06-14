@@ -16,7 +16,7 @@ public class DataCenterOrders {
 
 		// TODO: Insert dataCenterSize into your data structure.
 
-	    } else if (op.contentEquals("Rangex")) {
+	    } else if (op.contentEquals("Range")) {
 		int min = in.nextInt();
 		int max = in.nextInt();
 		int count = 0;
