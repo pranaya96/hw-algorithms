@@ -144,6 +144,14 @@ public class BinarySearchTree {
 	return max;
     }
 
+    public String toString() {
+	if (root == null) {
+	    return "\n";
+	} else {
+	    return stringNode(root);
+	}
+    }
+
     private String stringNode(Node node) {
 	int maxLevel = maxLevelForTree(node);
 	return stringNodeInternal(Collections.singletonList(root), 1, maxLevel);
