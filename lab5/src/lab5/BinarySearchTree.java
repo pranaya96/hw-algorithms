@@ -1,5 +1,9 @@
 package lab5;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class BinarySearchTree {
 
     private class Node {
@@ -116,5 +120,103 @@ public class BinarySearchTree {
 	// TODO: Implement delete here.
 
 	return false;
+    }
+
+    //////////////////////////
+    //                      //
+    // Pretty printing code //
+    //                      //
+    //////////////////////////
+    int maxLevelForTree(Node node) {
+	int max = 1;
+	if (node.leftChild != null) {
+	    int maxLeft = maxLevelForTree(node.leftChild);
+	    if (maxLeft + 1 > max) {
+		max = maxLeft + 1;
+	    }
+	}
+	if (node.rightChild != null) {
+	    int maxRight = maxLevelForTree(node.rightChild);
+	    if (maxRight + 1 > max) {
+		max = maxRight + 1;
+	    }
+	}
+	return max;
+    }
+
+    private String stringNode(Node node) {
+	int maxLevel = maxLevelForTree(node);
+	return stringNodeInternal(Collections.singletonList(root), 1, maxLevel);
+    }
+
+    private String stringNodeInternal(List<Node> nodes, int level, int maxLevel) {
+	if (nodes.isEmpty() || isAllElementsNull(nodes))
+            return "";
+	String out = new String();
+	int floor = maxLevel - level;
+        int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
+        int firstSpaces = (int) Math.pow(2, (floor)) - 1;
+        int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
+
+        out += whitespaces(firstSpaces);
+
+        List<Node> newNodes = new ArrayList<Node>();
+        for (Node node : nodes) {
+            if (node != null) {
+                out += node.value;
+                newNodes.add(node.leftChild);
+                newNodes.add(node.rightChild);
+            } else {
+                newNodes.add(null);
+                newNodes.add(null);
+                out += " ";
+            }
+
+            out += whitespaces(betweenSpaces);
+        }
+        out += "\n";
+
+        for (int i = 1; i <= endgeLines; i++) {
+            for (int j = 0; j < nodes.size(); j++) {
+                out += whitespaces(firstSpaces - i);
+                if (nodes.get(j) == null) {
+                    out += whitespaces(endgeLines + endgeLines + i + 1);
+                    continue;
+                }
+
+                if (nodes.get(j).leftChild != null)
+                    out += "/";
+                else
+                    out += " ";
+
+                out += whitespaces(i + i - 1);
+
+                if (nodes.get(j).rightChild != null)
+                    out += "\\";
+                else
+                    out += whitespaces(1);
+
+                out += whitespaces(endgeLines + endgeLines - i);
+            }
+
+            out += "\n";
+        }
+
+	return out + stringNodeInternal(newNodes, level + 1, maxLevel);
+    }
+
+    private static String whitespaces(int count) {
+	String out = new String();
+        for (int i = 0; i < count; i++)
+            out += " ";
+	return out;
+    }
+
+    private static <T> boolean isAllElementsNull(List<T> list) {
+        for (Object object : list) {
+            if (object != null)
+                return false;
+        }
+        return true;
     }
 }
