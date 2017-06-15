@@ -196,17 +196,14 @@ public class BinarySearchTree {
                     out += "/";
                 else
                     out += " ";
-
                 out += whitespaces(i + i - 1);
 
                 if (nodes.get(j).rightChild != null)
                     out += "\\";
                 else
                     out += whitespaces(1);
-
                 out += whitespaces(endgeLines + endgeLines - i);
             }
-
             out += "\n";
         }
 
