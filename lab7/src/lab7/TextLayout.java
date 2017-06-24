@@ -18,14 +18,50 @@ public class TextLayout {
 
     // Layout the text in the minimal number of lines.
     private static List<String> greedyLayoutText(List<String> words, int maxLineWidth) {
-	List<String> lines = new ArrayList<String>();
+    	List<String> lines = new ArrayList<String>();
+    	int i=0;
+		String myLine = "";
+		String temp = "";     
+    	while ( i < words.size()) {
 
-	////////////////////////////////
-	// TODO: Write yor code here. //
-	////////////////////////////////
+    		if ((temp.length() + myLine.length() + words.get(i).length()) <= maxLineWidth){
+    			myLine += temp + words.get(i) + " ";
+    			if(i == words.size()-1){
+    				lines.add(myLine.trim());
+    			}
+    			i++;
+    			temp ="";	
+    		}
+    		else {
+    			lines.add(myLine.trim());
+    			temp= words.get(i) + " ";
+    			myLine="";
+    			i++;
+    		}
+    	}
+    	giveCost(lines, maxLineWidth);
 
-	return lines;
+    		
+
+    
+    	// System.out.println(words.get(0));
+    	// System.out.println(words.get(1));
+    	return lines;
     }
+
+    public static void giveCost(List<String> lines, int maxLineWidth){
+    	int cost = 0;
+    	for(String line : lines){
+    		int usedLen = line.length();
+    		System.out.println(maxLineWidth-usedLen);
+    		cost = cost + ((maxLineWidth - usedLen) *  (maxLineWidth - usedLen));
+    	}
+    	System.out.println("The cost is: " + cost);
+    
+    }
+
+
+    
 
     public static void main(String[] args) {
 	if (args.length < 2) {
