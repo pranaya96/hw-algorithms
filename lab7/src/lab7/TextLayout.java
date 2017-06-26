@@ -14,6 +14,8 @@ public class TextLayout {
     // Lay out the text contained in the List<String> words into the individual lines.
     private static List<String> layoutText(List<String> words, int maxLineWidth) {
 	return greedyLayoutText(words, maxLineWidth);
+	// TODO: Uncomment this after implementing prettyPrintLayoutText()
+	// return prettyPrintLayoutText(words, maxLineWidth);
     }
 
     // Layout the text in the minimal number of lines.
@@ -61,7 +63,16 @@ public class TextLayout {
     }
 
 
-    
+    // Layout the text minimizing the "pretty print" cost function.
+    private static List<String> prettyPrintLayoutText(List<String> words, int maxLineWidth) {
+	List<String> lines = new ArrayList<String>();
+
+	////////////////////////////////
+	// TODO: Write yor code here. //
+	////////////////////////////////
+
+	return lines;
+    }
 
     public static void main(String[] args) {
 	if (args.length < 2) {
@@ -87,10 +98,15 @@ public class TextLayout {
 
 	List<String> lines = layoutText(words, maxLineWidth);
 	int lineNum = 1;
+	int totalCost = 0;
+	int lastLineCost = 0;
 	for (String line : lines) {
+	    totalCost += lastLineCost;
+	    lastLineCost = (maxLineWidth - line.length()) * (maxLineWidth - line.length());
 	    while (line.length() < maxLineWidth) line += " ";
 	    line += "|";
 	    System.out.format("%4d  %s\n", lineNum++, line);
 	}
+	System.out.println("Total cost: " + totalCost);
     }
 }
