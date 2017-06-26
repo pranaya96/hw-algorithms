@@ -51,10 +51,15 @@ public class TextLayout {
 
 	List<String> lines = layoutText(words, maxLineWidth);
 	int lineNum = 1;
+	int totalCost = 0;
+	int lastLineCost = 0;
 	for (String line : lines) {
+	    totalCost += lastLineCost;
+	    lastLineCost = (maxLineWidth - line.length()) * (maxLineWidth - line.length());
 	    while (line.length() < maxLineWidth) line += " ";
 	    line += "|";
 	    System.out.format("%4d  %s\n", lineNum++, line);
 	}
+	System.out.println("Total cost: " + totalCost);
     }
 }
