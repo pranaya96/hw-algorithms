@@ -14,10 +14,23 @@ public class TextLayout {
     // Lay out the text contained in the List<String> words into the individual lines.
     private static List<String> layoutText(List<String> words, int maxLineWidth) {
 	return greedyLayoutText(words, maxLineWidth);
+	// TODO: Uncomment this after implementing prettyPrintLayoutText()
+	// return prettyPrintLayoutText(words, maxLineWidth);
     }
 
     // Layout the text in the minimal number of lines.
     private static List<String> greedyLayoutText(List<String> words, int maxLineWidth) {
+	List<String> lines = new ArrayList<String>();
+
+	////////////////////////////////
+	// TODO: Write yor code here. //
+	////////////////////////////////
+
+	return lines;
+    }
+
+    // Layout the text minimizing the "pretty print" cost function.
+    private static List<String> prettyPrintLayoutText(List<String> words, int maxLineWidth) {
 	List<String> lines = new ArrayList<String>();
 
 	////////////////////////////////
